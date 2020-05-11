@@ -10,18 +10,84 @@ return elements in First In First Out order.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Queue?
 """
+
+#queue with array
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = []
+    
+#     def __len__(self):
+#         return len(self.storage)
+
+#     def enqueue(self, value):
+#         return self.storage.insert(0, value)
+        
+
+#     def dequeue(self):
+#         if len(self.storage) > 0:
+#             return self.storage.pop()
+
 class Queue:
     def __init__(self):
         self.size = 0
-        self.storage = []
+        self.storage = LinkedList()
     
     def __len__(self):
         return len(self.storage)
 
     def enqueue(self, value):
-        return self.storage.insert(0, value)
+        return self.storage.add_to_end(value)
         
 
     def dequeue(self):
-        if len(self.storage) > 0:
-            return self.storage.pop()
+        return self.storage.remove_from_start()
+
+
+
+
+class Node:
+  def __init__(self, value=None, next_node=None):
+    self.value = value
+    self.next_node = next_node
+
+  def get_value(self):
+    return self.value
+
+  def get_next(self):
+    return self.next_node
+
+  def set_next(self, new_next):
+    self.next_node = new_next
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
+
+    def __len__(self):
+        return self.length
+
+    def remove_from_start(self):
+        if self.length > 0:
+            old_head = self.head
+            self.head = self.head.get_next()
+            self.length -= 1
+            return old_head.value
+        else:
+            return None
+        
+
+    def add_to_end(self, value):
+        new_node = Node(value)
+        if self.length > 0:
+            self.tail.set_next(new_node)
+            self.tail = new_node
+            self.length += 1
+            return self.tail.value
+        else:
+            self.head = new_node
+            self.tail = new_node
+            self.length += 1
+            return self.head.value
