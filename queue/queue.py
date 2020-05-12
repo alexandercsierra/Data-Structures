@@ -28,20 +28,64 @@ return elements in First In First Out order.
 #         if len(self.storage) > 0:
 #             return self.storage.pop()
 
+#STRETCH
 class Queue:
     def __init__(self):
         self.size = 0
-        self.storage = LinkedList()
+        self.en_stack = Stack()
+        self.de_stack = Stack()
     
     def __len__(self):
-        return len(self.storage)
+        return len(self.en_stack) + len(self.de_stack)
 
     def enqueue(self, value):
-        return self.storage.add_to_end(value)
+        return self.en_stack.push(value)
         
 
     def dequeue(self):
-        return self.storage.remove_from_start()
+        if len(self.de_stack) > 0:
+            return self.de_stack.pop()
+        else:
+            while len(self.en_stack) > 0:
+                latest_node = self.en_stack.pop()
+                self.de_stack.push(latest_node)
+            return self.de_stack.pop()
+        
+
+
+class Stack:
+    def __init__(self):
+        self.size = 0
+        self.storage = []
+
+    def __len__(self):
+        return len(self.storage)
+
+    def push(self, value):
+        self.storage.append(value)
+
+    def pop(self):
+        if len(self.storage) > 0:
+            return self.storage.pop()
+
+
+
+#END STRETCH
+
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = LinkedList()
+    
+#     def __len__(self):
+#         return len(self.storage)
+
+#     def enqueue(self, value):
+#         return self.storage.add_to_end(value)
+        
+
+#     def dequeue(self):
+#         return self.storage.remove_from_start()
 
 
 
