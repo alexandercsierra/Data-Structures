@@ -72,26 +72,23 @@ class BinarySearchTree:
             if self.right != None:
                 self.right.for_each(fn)
             
-                
-        #go all the way down the left side until there is no more left
-        #go back one
-            
 
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        node.for_each(print)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        while 
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
+        #use a queue
         pass
 
     # Stretch Goals -------------------------
