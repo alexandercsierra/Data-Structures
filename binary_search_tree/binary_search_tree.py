@@ -66,12 +66,16 @@ class BinarySearchTree:
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        # if self.value != None:
-        #     if self.value.left != None:
-        #         self.left.for_each()
-        #     else:
-        #         self.value
-        pass
+            if self.left != None:
+                self.left.for_each(fn)
+            fn(self.value)
+            if self.right != None:
+                self.right.for_each(fn)
+            
+                
+        #go all the way down the left side until there is no more left
+        #go back one
+            
 
     # Part 2 -----------------------
 
