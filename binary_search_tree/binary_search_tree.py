@@ -9,6 +9,10 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+
+from queue import Queue
+
+
 class BinarySearchTree:
     def __init__(self, value):
         self.value = value
@@ -83,7 +87,8 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        while 
+        q = Queue()
+        
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
