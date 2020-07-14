@@ -41,6 +41,7 @@ class BinarySearchTreeTests(unittest.TestCase):
         arr = []
         cb = lambda x: arr.append(x)
 
+
         v1 = random.randint(1, 101)
         v2 = random.randint(1, 101)
         v3 = random.randint(1, 101)

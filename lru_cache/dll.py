@@ -58,11 +58,14 @@ class DoublyLinkedList:
             new_node = ListNode(value, None, self.head)
             self.head.prev = new_node
             self.head = new_node
+            self.length +=1
+            return new_node
         else:
             new_node = ListNode(value)
             self.head = new_node
             self.tail = new_node
-        self.length +=1
+            self.length +=1
+            return new_node
 
     """Removes the List's current head node, making the
     current head's next node the new head of the List.
@@ -94,11 +97,13 @@ class DoublyLinkedList:
             self.tail.next = new_node
             self.tail = new_node
             self.length +=1
+            return new_node
         else:
             new_node = ListNode(value)
             self.head = new_node
             self.tail = new_node
             self.length +=1
+            return new_node
 
     """Removes the List's current tail node, making the 
     current tail's previous node the new tail of the List.
